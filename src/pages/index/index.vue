@@ -13,6 +13,8 @@
         <card :text="motto"></card>
       </div>
     </div>
+    
+    <card :text="upper_motto"></card>
       
     <form class="form-container">
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
@@ -29,8 +31,15 @@ export default {
   data () {
     return {
       motto: 'Hello World',
-      userInfo: {}
+      userInfo: {},
+    //   upper_motto: 'hehe',
     }
+  },
+
+  computed: {
+      upper_motto: function() {
+          return this.motto.toUpperCase().split('').reverse().join('')
+      }
   },
 
   components: {
